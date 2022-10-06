@@ -7,12 +7,19 @@
   flex-direction: column;
 }
 
-.taskContainer > header {
+
+.headerContentNone {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding-bottom: 1.5rem;
+  height:54px;
+}
+.headerContentActive {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
   border-bottom: 1px solid var(--gray-400);
+  height:54px;
 }
 
 .taskHeaderContent {
@@ -64,7 +71,6 @@
   font-size: 16px;
   color: var(--gray-300);
   width: 100%;
-  
 }
 
 .taskUnchecked {
@@ -85,31 +91,40 @@
 .content:last-child {
   margin-bottom: 2rem;
 }
+
 .inputContent {
   display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding: 0 1rem;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 1rem;
   width: 46rem;
   height: 4.5rem;
   background: var(--gray-500);
+  border-radius: 8px;
+
+  border: 1px solid #333333;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
 }
 
+.inputContent button:first-child {
+  transition: background-color 0.5s, border-color 0.5s;
 
+}
 .buttonChecked {
   background: var(--purpleDark);
-  border: 3px solid var(--purpleDark);
+  border:1px solid var(--purpleDark);
   width: 1rem;
   height: 1rem;
   border-radius: 9999px;
   color: var(--gray-300);
   cursor: pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-
+.buttonChecked:hover {
+  filter: brightness(1.5);
+}
 
 .buttonUnchecked {
   border: 1px solid var(--blue);
@@ -118,6 +133,10 @@
   width: 1rem;
   height: 1rem;
   cursor: pointer;
+}
+
+.buttonUnchecked:hover {
+  filter: brightness(0.75);
 }
 
 .inputContent button:last-child {
@@ -131,6 +150,4 @@
 .inputContent button:last-child:hover {
   background-color: var(--gray-400);
   color: var(--danger);
-  
- 
 }

@@ -1,12 +1,6 @@
 import styles from "./Task.module.css";
 import { Trash } from "phosphor-react";
-import Vector from "../../../public/assets/Vector.png";
 
-interface TasksProps {
-  id: number;
-  title: string;
-  isCompleted: boolean;
-}
 
 interface TaskProps {
   tasks: any;
@@ -21,19 +15,30 @@ export function Task({
   handleRemoveTask,
   handleCompletedTask,
   completedTasks,
-  handleRemoveAll
+  handleRemoveAll,
 }: TaskProps) {
+
   return (
     <div className={styles.taskContainer}>
-      <header>
+      <header
+        className={
+          tasks.length > 0
+            ? styles.headerContentNone
+            : styles.headerContentActive
+        }
+      >
         <div className={styles.taskHeaderContent}>
           <p>Tarefas criadas</p>
           <span>{tasks.length}</span>
         </div>
-        <button title="Deletar" className={styles.deleteAll} onClick={()=>handleRemoveAll(tasks)}>
-              <Trash size={20} />
-              <p>Apagar tasks concluídas</p>
-            </button>
+        <button
+          title="Deletar"
+          className={styles.deleteAll}
+          onClick={() => handleRemoveAll(tasks)}
+        >
+          <Trash size={20} />
+          <p>Apagar tasks concluídas</p>
+        </button>
         <div className={styles.taskHeaderContent}>
           <p>Concluídas</p>
           <span>
@@ -60,7 +65,7 @@ export function Task({
               }
               onClick={() => handleCompletedTask(task.id)}
             >
-              <img src={task.isCompleted ? Vector : ""} />
+              <img src={task.isCompleted ? '/assets/Vector.png' : ""} />
             </button>
             <h1
               className={
@@ -69,7 +74,11 @@ export function Task({
             >
               {task.title}
             </h1>
-            <button type="button" title="Deletar" onClick={() => handleRemoveTask(task.id)}>
+            <button
+              type="button"
+              title="Deletar"
+              onClick={() => handleRemoveTask(task.id)}
+            >
               <Trash size={20} />
             </button>
           </div>
