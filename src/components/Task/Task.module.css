@@ -64,6 +64,7 @@
   font-size: 16px;
   color: var(--gray-300);
   width: 100%;
+  
 }
 
 .taskUnchecked {
@@ -87,13 +88,14 @@
 .inputContent {
   display: flex;
   align-items: center;
+  border: 1px solid red;
   gap: 2rem;
   padding: 0 1rem;
   width: 46rem;
   height: 4.5rem;
-
   background: var(--gray-500);
 }
+
 
 .buttonChecked {
   background: var(--purpleDark);
@@ -115,7 +117,6 @@
 }
 
 .inputContent button:last-child {
-  margin-bottom: 2rem;
   cursor: pointer;
   background: var(--gray-500);
   border: none;
